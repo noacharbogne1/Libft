@@ -96,18 +96,3 @@ char    **ft_split(char const *s, char c)
     dest[j] = 0;
     return (dest);
 }
-
-#include <stdio.h>
-
-int    main()
-{
-    char **tab;
-    int    i = 0;
-    
-    tab = ft_split("", ' ');
-    while (tab[i])
-    {
-        printf("%s\n", tab[i]);
-        i++;
-    }
-}

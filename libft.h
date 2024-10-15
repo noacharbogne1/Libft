@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:04:20 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/14 19:13:36 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/15 16:51:16 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <ctype.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct	s_list
+{
+	void			*content;
+	struct	s_list	*next;
+}					t_list;
 
 int	        ft_atoi(const char *nptr);
 void        ft_bzero(void *s, size_t n);

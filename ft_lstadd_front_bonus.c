@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:25:57 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/15 10:50:54 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/15 16:32:02 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
-		return (NULL);
+		return ;
 	new->next = *lst;
 	*lst = new;
 }

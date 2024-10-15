@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 11:27:21 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/15 16:46:12 by ncharbog         ###   ########.fr       */
+/*   Created: 2024/10/15 16:47:26 by ncharbog          #+#    #+#             */
+/*   Updated: 2024/10/15 17:14:03 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list	*temp;
-	
-	if (!lst || !new)
+	if (!lst)
 		return ;
-	temp = *lst;
-	if (!temp)
-	{
-		*lst = new;
-		return ;
-	}
-	while (temp->next != NULL)
-		temp = temp->next;
-	temp->next = new;
+	del(lst->content);
+	free(lst);
 }
