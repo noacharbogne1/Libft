@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:00:40 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/15 11:35:24 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 08:43:09 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ int	ft_lstsize(t_list *lst)
 
 	i = 0;
 	if (!lst)
-		return (NULL);
+		return (0);
+	if (lst->next == NULL)
+		return (1);
 	while (lst->next != NULL)
 	{
 		lst = lst->next;
 		i++;
 	}
-	return (i);
+	return (i + 1);
 }
