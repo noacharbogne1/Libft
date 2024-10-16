@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 10:36:30 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/16 10:46:52 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:13:45 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
+	if (fd < 0)
+		return ;
 	write(fd, &c, 1);
 }

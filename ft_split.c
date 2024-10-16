@@ -6,29 +6,29 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:52:22 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/10/16 16:27:54 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:11:23 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_free(char **dest)
+static void	ft_free(char **dest, int j)
 {
 	int	i;
-	int	j;
+	int	p;
 	
 	i = 0;
-	j = 0;
+	p = 0;
 	while(dest[i])
 	{
-		while(dest[i][j])
+		while(dest[p] && p < j)
 		{
-			free(dest[j]);
-			j++;
+			free(dest[p]);
+			p++;;
 		}
-		free(dest[i]);
 		i++;
 	}
+	free(dest);
 }
 
 static int	ft_words(char const *s, char c)
@@ -96,7 +96,7 @@ static char	**ft_formed_split(char **dest, char const *s, char c)
 			dest[j] = ft_fill(&s[i], c);
 			if (dest[j] == NULL)
 			{
-				ft_free(dest);
+				ft_free(dest, j);
 				return (0);
 			}
 			j++;
