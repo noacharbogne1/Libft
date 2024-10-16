@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:42:55 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/16 11:04:49 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:55:37 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	p = 0;
+	if ((!big || !little) && len == 0)
+		return (0);
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[i] != '\0' && i < len)
