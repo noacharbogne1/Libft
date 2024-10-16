@@ -6,16 +6,16 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 11:59:19 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/14 15:47:48 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:40:41 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_count(int n)
+static int	ft_count(int n)
 {
 	size_t		count;
-	
+
 	count = 1;
 	if (n < 0)
 		n = n * -1;
@@ -30,7 +30,7 @@ static int		ft_count(int n)
 static char	*ft_negative(int n, size_t count)
 {
 	char	*dest;
-	
+
 	count = count + 2;
 	dest = malloc (count * sizeof (char));
 	if (dest == NULL)
@@ -53,7 +53,7 @@ static char	*ft_negative(int n, size_t count)
 static char	*ft_positive(int n, size_t count)
 {
 	char	*dest;
-	
+
 	count = count + 1;
 	dest = malloc (count * sizeof (char));
 	if (dest == NULL)
@@ -73,9 +73,9 @@ static char	*ft_positive(int n, size_t count)
 
 char	*ft_itoa(int n)
 {
-	char	*dest;
+	char		*dest;
 	size_t		count;
-	
+
 	count = ft_count(n);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));

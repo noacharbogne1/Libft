@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 10:38:25 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/14 11:01:17 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:32:07 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
-	i  = 0;
+	i = 0;
 	while (s[i])
 	{
 		write(fd, &s[i], 1);

@@ -6,18 +6,18 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:28:50 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/08 16:35:54 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:07:26 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (c >= 'A' && c <= 'Z')
-    {
-        c = c + 32;
-        return (c);
-    }
+	if (c >= 'A' && c <= 'Z')
+	{
+		c = c + 32;
+		return (c);
+	}
 	return (c);
 }

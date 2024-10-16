@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:14:55 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/16 09:32:16 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:41:33 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	if (!lst || !*lst)
 		return ;
 	temp = *lst;
-	while (temp->next != NULL)
+	while (*lst)
 	{
-		del(temp->content);
-		free (temp);
-		temp = temp->next;
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	*lst = NULL;
+	temp = NULL;
 }

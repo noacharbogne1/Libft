@@ -6,7 +6,7 @@
 #    By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 08:28:04 by ncharbog          #+#    #+#              #
-#    Updated: 2024/10/16 08:34:10 by ncharbog         ###   ########.fr        #
+#    Updated: 2024/10/16 10:03:59 by ncharbog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ SOURCES_BONUS = ft_lstadd_back_bonus.c\
 				ft_lstiter_bonus.c\
 				ft_lstlast_bonus.c\
 				ft_lstnew_bonus.c\
+				ft_lstmap_bonus.c\
 				ft_lstsize_bonus.c
 
 OBJ_BONUS = $(SOURCES_BONUS:.c=.o)

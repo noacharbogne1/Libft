@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:29:29 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/16 08:39:15 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:42:46 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
-	
+
 	new = malloc(sizeof(t_list));
 	if (new == NULL)
 		return (0);

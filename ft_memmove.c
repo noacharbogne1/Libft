@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:02:48 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/15 08:06:08 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:45:56 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char		*char_dest;
 	unsigned char		*char_src;
-	
+
 	if (dest == NULL && src == NULL)
-        return (0);
+		return (0);
 	if (dest <= src)
 		return (ft_memcpy(dest, src, n));
 	else
@@ -28,9 +28,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n)
 		{
 			*char_dest = *char_src;
-       		char_dest--;
-        	char_src--;
-        	n--;
+			char_dest--;
+			char_src--;
+			n--;
 		}
 	}
 	return (dest);
