@@ -6,17 +6,29 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:52:22 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/10/16 10:49:48 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 16:27:54 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_check(char s, char c)
+static void	ft_free(char **dest)
 {
-	if (s == c)
-		return (1);
-	return (0);
+	int	i;
+	int	j;
+	
+	i = 0;
+	j = 0;
+	while(dest[i])
+	{
+		while(dest[i][j])
+		{
+			free(dest[j]);
+			j++;
+		}
+		free(dest[i]);
+		i++;
+	}
 }
 
 static int	ft_words(char const *s, char c)
@@ -28,12 +40,12 @@ static int	ft_words(char const *s, char c)
 	words = 0;
 	while (s[i])
 	{
-		while (s[i] && ft_check(s[i], c) > 0)
+		while (s[i] && s[i] == c)
 			i++;
-		if (s[i] && ft_check(s[i], c) < 1)
+		if (s[i] && s[i] != c)
 		{
 			words++;
-			while (s[i] && ft_check(s[i], c) < 1)
+			while (s[i] && s[i]!= c)
 				i++;
 		}
 	}
@@ -50,7 +62,7 @@ static char	*ft_fill(char const *s, char c)
 	i = 0;
 	len = 0;
 	j = 0;
-	while (s[i] && ft_check(s[i], c) < 1)
+	while (s[i] && s[i] != c)
 	{
 		i++;
 		len++;
@@ -68,31 +80,41 @@ static char	*ft_fill(char const *s, char c)
 	return (dest);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**ft_formed_split(char **dest, char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		words;
-	char	**dest;
 
 	i = 0;
 	j = 0;
-	words = ft_words(s, c);
-	dest = malloc((words + 1) * sizeof(char *));
-	if (dest == NULL)
-		return (0);
 	while (s[i])
 	{
-		while (s[i] && ft_check(s[i], c) > 0)
+		while (s[i] && s[i] == c)
 			i++;
-		if (s[i] && ft_check(s[i], c) < 1)
+		if (s[i] && s[i] != c)
 		{
 			dest[j] = ft_fill(&s[i], c);
+			if (dest[j] == NULL)
+			{
+				ft_free(dest);
+				return (0);
+			}
 			j++;
-			while (s[i] && ft_check(s[i], c) < 1)
+			while (s[i] && s[i] != c)
 				i++;
 		}
 	}
 	dest[j] = 0;
+	return (dest);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**dest;
+
+	dest = malloc((ft_words(s, c) + 1) * sizeof(char *));
+	if (dest == NULL)
+		return (0);
+	dest = ft_formed_split(dest, s, c);
 	return (dest);
 }
