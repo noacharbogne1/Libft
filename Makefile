@@ -6,7 +6,7 @@
 #    By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 08:28:04 by ncharbog          #+#    #+#              #
-#    Updated: 2024/10/16 10:03:59 by ncharbog         ###   ########.fr        #
+#    Updated: 2024/10/16 17:39:38 by ncharbog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,5 +80,9 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 re:	fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES) $(SOURCES_BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJ_BONUS)
 
 .PHONY: all clean fclean re bonus

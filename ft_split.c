@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:52:22 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/10/16 17:25:35 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:04:20 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ char	**ft_split(char const *s, char c)
 {
 	char	**dest;
 
+	if (!s)
+		return (0);
 	dest = malloc((ft_words(s, c) + 1) * sizeof(char *));
 	if (dest == NULL)
 		return (0);

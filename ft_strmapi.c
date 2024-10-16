@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:13:17 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/16 11:03:48 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:05:28 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	int		len;
 
-	i = 0;
-	len = ft_strlen(s);
 	if (!s || !f)
 		return (0);
+	i = 0;
+	len = ft_strlen(s);
 	dest = malloc((len + 1) * sizeof(char));
 	if (dest == NULL)
 		return (0);
