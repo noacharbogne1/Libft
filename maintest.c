@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 11:19:18 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/17 12:55:44 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:12:05 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,39 @@ int main()
 
 //MAIN LSTADD_BACK
 
+int	main()
+{
+	t_list *lst = malloc(sizeof(t_list));
+	t_list *new;
+	int	i = 0;
+	char content[] = "kkk";
+	char content_end[] = "ppp";
+	
+	lst->content = content_end;
+	lst->next = NULL;
+	
+	new = ft_lstnew(content);
+	ft_lstadd_back(&new, lst);
+	printf("%s\n", new->next->content);
+}
+
 //MAIN LSTADD_FRONT
+
+int	main()
+{
+	t_list *lst = malloc(sizeof(t_list));
+	t_list *new;
+	int	i = 0;
+	char content[] = "kkk";
+	char content_end[] = "ppp";
+	
+	lst->content = content_end;
+	lst->next = NULL;
+	
+	new = ft_lstnew(content);
+	ft_lstadd_front(&new, lst);
+	printf("%s\n", new->next->content);
+}
 
 //MAIN LSTCLEAR
 
@@ -98,21 +130,55 @@ int main()
 
 void	del(void *a)
 {
-	
+	a = 0;
 }
 
 int	main()
 {
 	char c[] = "kk";
-	t_list *lst;
-	lst = ft_lstnew(c, del);
+	t_list *lst = malloc(sizeof(t_list));
+	lst = ft_lstnew(c);
+	ft_lstdelone(lst, (*del));
 }
 
 //MAIN LSTITER
 
+char f(unsigned int n, char c)
+{
+	if (n >= 0)
+		c = 'l';
+	return (c);
+}
+
+int	main()
+{
+	t_list *lst = malloc (sizeof(t_list));
+	lst = ft_lstiter(lst, (*f));
+	printf("%s", lst);
+}
+
 //MAIN LSTLAST
 
+int	main()
+{
+	t_list *lst = malloc(sizeof(t_list));
+	t_list *new;
+	t_list *temp;
+	char content[] = "kkk";
+	temp = lst;
+	
+	lst->content = content;
+	lst->next = NULL;
+	
+	new = ft_lstnew(content);
+	ft_lstadd_back(&lst, new);
+	temp = ft_lstlast(lst);
+	printf("%s", temp->next);
+}
+
 //MAIN LSTMAP
+
+
 
 //MAIN LSTNEW
 
@@ -126,6 +192,22 @@ int	main()
 }
 
 //MAIN LSTSIZE
+
+int	main()
+{
+	t_list *lst;
+	t_list *new;
+	int	i = 0;
+	char content[] = "kkk";
+	
+	while (i< 7)
+	{
+		new = ft_lstnew(content);
+		ft_lstadd_back(&lst, new);
+		i++;
+	}
+	printf("%d", ft_lstsize(lst));
+}
 
 //MAIN MEMCHR
 
