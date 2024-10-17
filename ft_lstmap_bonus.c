@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:52:47 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/10/16 16:55:30 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/10/17 08:12:35 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	new = NULL;
 	destlist = NULL;
+	temp = NULL;
 	if (!lst || !f || !del)
 		return (0);
 	while (lst)
